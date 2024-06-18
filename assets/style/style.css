@@ -1,0 +1,92 @@
+@keyframes front{
+    from{
+        background:url("../sprites/Characters/basicFront2.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }to{
+        background:url("../sprites/Characters/basicFront1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 37, 5);
+}
+
+.game-wrapper{
+    width: 1000px;
+    height: 570px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.game-row, .character{
+    width: 50px;
+    height: 50px;
+    border: red solid 1px;
+}
+
+.corner-top-left{
+    background: url("../sprites/Tilesets/basicGrassCornerTopLeft.png");
+    background-size: cover;
+}
+
+.left{
+    background:url("../sprites/Tilesets/basicGrassLeft.png");
+    background-size: cover;
+}
+
+.corner-bottom-left{
+    background:url("../sprites/Tilesets/basicGrasCornerBottomLeft.png");
+    background-size: cover;
+}
+
+.top{
+    background:url("../sprites/Tilesets/basicGrassTop.png");
+    background-size: cover;
+}
+
+.bottom{
+    background: url("../sprites/Tilesets/basicGrassBottom.png");
+    background-size: cover;
+}
+
+.right{
+    background: url("../sprites/Tilesets/basicGrassRight.png");
+    background-size: cover;
+}
+
+.corner-top-right{
+    background: url("../sprites/Tilesets/basicGrassCornerTopRight.png");
+    background-size: cover;
+}
+
+.corner-bottom-right{
+    background: url("../sprites/Tilesets/basicGrassCornerBottomRight.png");
+    background-size: cover;
+}
+
+.center{
+    background: url("../sprites/Tilesets/basicGrassCenter.png");
+    background-size: cover;
+}
+
+.character{
+    animation: front 2s infinite;
+}
+
