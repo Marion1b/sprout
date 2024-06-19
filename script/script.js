@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function(){
     let character = document.querySelector('.character');
     let positionY = 0;
     let positionX = 0;
-    
+
+
+    // Make Sprout move with the correct disposition
     document.addEventListener('keydown', function(e) {
         let characterContent = character;
         for (let i = 0; i < cellules.length; i++) {
@@ -13,7 +15,9 @@ document.addEventListener("DOMContentLoaded", function(){
                     j=i-1;
                     if(cellules[j] && (positionY%10 !== 0 || positionY ===10)){
                         cellules[i].firstChild.remove();
-                        cellules[j].appendChild(characterContent);           
+                        cellules[j].appendChild(characterContent);
+                        characterContent.classList.remove(characterContent.classList[1]);
+                        characterContent.classList.add('character-back');           
                         positionY--;
                     }
                 } else if (e.key === "ArrowDown") {
@@ -21,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function(){
                     if(cellules[j] && (positionY%10 !== 0 || positionY === 0)){
                         cellules[i].firstChild.remove();
                         cellules[j].appendChild(characterContent);
+                        characterContent.classList.remove(characterContent.classList[1]);
+                        characterContent.classList.add('character-front');
                         positionY++;
                     }
                 } else if (e.key === "ArrowLeft") {
@@ -28,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function(){
                     if(cellules[j] && (positionX%18 !== 0 || positionX === 18)){
                         cellules[i].firstChild.remove();
                         cellules[j].appendChild(characterContent);
+                        characterContent.classList.remove(characterContent.classList[1]);
+                        characterContent.classList.add('character-left');
                         positionX--;
                     }
                 } else if (e.key === "ArrowRight") {
@@ -35,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function(){
                     if(cellules[j] && (positionX%18!==0 || positionX === 0)){
                         cellules[i].firstChild.remove();
                         cellules[j].appendChild(characterContent);
+                        characterContent.classList.remove(characterContent.classList[1]);
+                        characterContent.classList.add('character-right');
                         positionX++;
                     }
                 }
