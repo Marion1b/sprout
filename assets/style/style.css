@@ -12,6 +12,48 @@
     }
 }
 
+@keyframes back{
+    from{
+        background: url("../sprites/Characters/basicBack2.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }to{
+        background: url("../sprites/Characters/basicBack1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+}
+
+@keyframes left{
+    from{
+        background: url("../sprites/Characters/basicLeft2.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }to{
+        background: url("../sprites/Characters/basicLeft1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+}
+
+@keyframes right{
+    from{
+        background: url("../sprites/Characters/basicRight2.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }to{
+        background: url("../sprites/Characters/basicRight1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -86,6 +128,18 @@ body{
     background-size: cover;
 }
 
-.character{
+.character-front{
     animation: front 2s infinite;
+}
+
+.character-back{
+    animation: back 2s infinite;
+}
+
+.character-left{
+    animation: left 2s infinite;
+}
+
+.character-right{
+    animation: right 2s infinite;
 }
