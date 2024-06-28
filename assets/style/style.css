@@ -80,51 +80,55 @@ body{
 .game-row, .character{
     width: 50px;
     height: 50px;
-    border: red solid 1px;
 }
 
-.corner-top-left{
+.grass-corner-top-left{
     background: url("../sprites/Tilesets/basicGrassCornerTopLeft.png");
     background-size: cover;
 }
 
-.left{
+.grass-left{
     background:url("../sprites/Tilesets/basicGrassLeft.png");
     background-size: cover;
 }
 
-.corner-bottom-left{
+.grass-corner-bottom-left{
     background:url("../sprites/Tilesets/basicGrasCornerBottomLeft.png");
     background-size: cover;
 }
 
-.top{
+.grass-top{
     background:url("../sprites/Tilesets/basicGrassTop.png");
     background-size: cover;
 }
 
-.bottom{
+.grass-bottom{
     background: url("../sprites/Tilesets/basicGrassBottom.png");
     background-size: cover;
 }
 
-.right{
+.grass-right{
     background: url("../sprites/Tilesets/basicGrassRight.png");
     background-size: cover;
 }
 
-.corner-top-right{
+.grass-corner-top-right{
     background: url("../sprites/Tilesets/basicGrassCornerTopRight.png");
     background-size: cover;
 }
 
-.corner-bottom-right{
+.grass-corner-bottom-right{
     background: url("../sprites/Tilesets/basicGrassCornerBottomRight.png");
     background-size: cover;
 }
 
-.center{
+.grass-center{
     background: url("../sprites/Tilesets/basicGrassCenter.png");
+    background-size: cover;
+}
+
+.dirt{
+    background: url("../sprites/Tilesets/basicDirtCenter.png");
     background-size: cover;
 }
 
@@ -143,3 +147,32 @@ body{
 .character-right{
     animation: right 2s infinite;
 }
+
+.pockets{
+    border-radius: 10px;
+    position: absolute;
+    top: 85%;
+    background-color: maroon;
+    display: flex;
+    border: maroon 3px solid;
+}
+
+.pocket{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: maroon 2px solid;
+    background-color: rgb(146, 199, 135);
+}
+
+.pocket-select{
+    background: orange;
+}
+
+.apple-to-plant{
+    background-image: url("../sprites/Objects/apple-to-plant.png");
+    background-size: 75%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+

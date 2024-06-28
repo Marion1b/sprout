@@ -2,16 +2,16 @@ document.addEventListener("DOMContentLoaded", function(){
     let body = document.querySelector('body');
     let cellules = document.querySelectorAll('.game-row');
     let character = document.querySelector('.character');
+    let pockets = document.querySelectorAll('.pocket');
     let positionY = 0;
     let positionX = 0;
 
-
-    // Make Sprout move with the correct disposition
     document.addEventListener('keydown', function(e) {
         let characterContent = character;
+        // Make Sprout move with the correct disposition
         for (let i = 0; i < cellules.length; i++) {
             if (cellules[i].firstChild && cellules[i].firstChild.classList[0] === "character") {
-                if (e.key === "ArrowUp") {
+                if (e.key === "z") {
                     j=i-1;
                     if(cellules[j] && (positionY%10 !== 0 || positionY ===10)){
                         cellules[i].firstChild.remove();
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         characterContent.classList.add('character-back');           
                         positionY--;
                     }
-                } else if (e.key === "ArrowDown") {
+                } else if (e.key === "s") {
                     j=i+1;
                     if(cellules[j] && (positionY%10 !== 0 || positionY === 0)){
                         cellules[i].firstChild.remove();
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         characterContent.classList.add('character-front');
                         positionY++;
                     }
-                } else if (e.key === "ArrowLeft") {
+                } else if (e.key === "q") {
                     j=i-11;
                     if(cellules[j] && (positionX%18 !== 0 || positionX === 18)){
                         cellules[i].firstChild.remove();
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         characterContent.classList.add('character-left');
                         positionX--;
                     }
-                } else if (e.key === "ArrowRight") {
+                } else if (e.key === "d") {
                     j=i+11;
                     if(cellules[j] && (positionX%18!==0 || positionX === 0)){
                         cellules[i].firstChild.remove();
@@ -51,6 +51,36 @@ document.addEventListener("DOMContentLoaded", function(){
                 break;
             }
         }
+
+        if(e.key === " "){
+            let background = characterContent.parentElement;
+            background.classList.remove(background.classList[1]);
+            background.classList.add("dirt");
+        }
+
+        if(e.key === "ArrowRight"){
+            for(let i = 0; i<pockets.length; i++){
+                if(pockets[i].className.includes("pocket-select")){
+                    let j = i+1;
+                    if(pockets[j]){
+                        pockets[i].classList.remove("pocket-select");
+                        pockets[j].classList.add("pocket-select");
+                    }
+                    break;
+                }
+            }
+        }else if(e.key==="ArrowLeft"){
+            for(let i = 0; i<pockets.length; i++){
+                if(pockets[i].className.includes("pocket-select")){
+                    let j = i-1
+                    if(pockets[j]){
+                        pockets[i].classList.remove("pocket-select");
+                        pockets[j].classList.add("pocket-select");
+                    }
+                    break;
+                }
+            }
+        }
     });
-    
+
 })
