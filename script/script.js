@@ -17,7 +17,13 @@ document.addEventListener("DOMContentLoaded", function(){
                     j=i-1;
                     if(cellules[j] && (positionY%10 !== 0 || positionY ===10)){
                         cellules[i].firstChild.remove();
-                        cellules[j].appendChild(characterContent);
+                        let firstChild;
+                        cellules[j].firstChild ? firstChild = cellules[j].firstChild : firstChild = "none";
+                        if(firstChild !== "none"){
+                            cellules[j].insertBefore(characterContent,firstChild);
+                        }else{
+                            cellules[j].appendChild(characterContent);
+                        }
                         characterContent.classList.remove(characterContent.classList[1]);
                         characterContent.classList.add('character-back');           
                         positionY--;
@@ -26,7 +32,13 @@ document.addEventListener("DOMContentLoaded", function(){
                     j=i+1;
                     if(cellules[j] && (positionY%10 !== 0 || positionY === 0)){
                         cellules[i].firstChild.remove();
-                        cellules[j].appendChild(characterContent);
+                        let firstChild;
+                        cellules[j].firstChild ? firstChild = cellules[j].firstChild : firstChild = "none";
+                        if(firstChild !== "none"){
+                            cellules[j].insertBefore(characterContent,firstChild);
+                        }else{
+                            cellules[j].appendChild(characterContent);
+                        }
                         characterContent.classList.remove(characterContent.classList[1]);
                         characterContent.classList.add('character-front');
                         positionY++;
@@ -35,7 +47,13 @@ document.addEventListener("DOMContentLoaded", function(){
                     j=i-11;
                     if(cellules[j] && (positionX%18 !== 0 || positionX === 18)){
                         cellules[i].firstChild.remove();
-                        cellules[j].appendChild(characterContent);
+                        let firstChild;
+                        cellules[j].firstChild ? firstChild = cellules[j].firstChild : firstChild = "none";
+                        if(firstChild !== "none"){
+                            cellules[j].insertBefore(characterContent,firstChild);
+                        }else{
+                            cellules[j].appendChild(characterContent);
+                        }
                         characterContent.classList.remove(characterContent.classList[1]);
                         characterContent.classList.add('character-left');
                         positionX--;
@@ -44,7 +62,13 @@ document.addEventListener("DOMContentLoaded", function(){
                     j=i+11;
                     if(cellules[j] && (positionX%18!==0 || positionX === 0)){
                         cellules[i].firstChild.remove();
-                        cellules[j].appendChild(characterContent);
+                        let firstChild;
+                        cellules[j].firstChild ? firstChild = cellules[j].firstChild : firstChild = "none";
+                        if(firstChild !== "none"){
+                            cellules[j].insertBefore(characterContent,firstChild);
+                        }else{
+                            cellules[j].appendChild(characterContent);
+                        }
                         characterContent.classList.remove(characterContent.classList[1]);
                         characterContent.classList.add('character-right');
                         positionX++;
@@ -96,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function(){
         if(e.key==="n"){
             if(background.className.includes("dirt")){
                 if(pocketSelection === "apple-to-plant"){
-                    console.log(background);
                     let seed = document.createElement("div");
                     seed.classList.add("seed");
                     background.appendChild(seed);
