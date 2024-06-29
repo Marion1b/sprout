@@ -192,3 +192,11 @@ body{
     background-size: 25%;
     background-repeat: no-repeat;
 }
+
+.pocket p{
+    background-color: rgb(146, 199, 135);
+    border-radius: 5px;
+    padding: 2px;
+    width: fit-content;
+    font-size: 12px;
+}

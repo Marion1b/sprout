@@ -3,9 +3,16 @@ document.addEventListener("DOMContentLoaded", function(){
     let cellules = document.querySelectorAll('.game-row');
     let character = document.querySelector('.character');
     let pockets = document.querySelectorAll('.pocket');
+    let appleToPlant = document.querySelector('.apple-to-plant');
     let positionY = 0;
     let positionX = 0;
     let pocketSelection=pockets[0].firstChild.className;
+    let stocksPockets = {
+        "apple":10
+    };
+    let appleStock = document.createElement("p");
+    appleStock.innerText = stocksPockets.apple;
+    appleToPlant.appendChild(appleStock);
 
     document.addEventListener('keydown', function(e) {
         let characterContent = character;
@@ -120,9 +127,15 @@ document.addEventListener("DOMContentLoaded", function(){
         if(e.key==="n"){
             if(background.className.includes("dirt")){
                 if(pocketSelection === "apple-to-plant"){
-                    let seed = document.createElement("div");
-                    seed.classList.add("seed");
-                    background.appendChild(seed);
+                    if(stocksPockets.apple > 0){
+                        stocksPockets.apple--;
+                        appleStock.innerText = stocksPockets.apple;
+                        let seed = document.createElement("div");
+                        seed.classList.add("seed");
+                        background.appendChild(seed);
+                    }else if(stocksPockets.apple === 0){
+                        pockets[0].removeChild(appleToPlant);
+                    }
                 }
             }
         }
