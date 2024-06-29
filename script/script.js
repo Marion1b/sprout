@@ -5,9 +5,11 @@ document.addEventListener("DOMContentLoaded", function(){
     let pockets = document.querySelectorAll('.pocket');
     let positionY = 0;
     let positionX = 0;
+    let pocketSelection=pockets[0].firstChild.className;
 
     document.addEventListener('keydown', function(e) {
         let characterContent = character;
+        let background = characterContent.parentElement;
         // Make Sprout move with the correct disposition
         for (let i = 0; i < cellules.length; i++) {
             if (cellules[i].firstChild && cellules[i].firstChild.classList[0] === "character") {
@@ -53,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function(){
         }
 
         if(e.key === " "){
-            let background = characterContent.parentElement;
             background.classList.remove(background.classList[1]);
             background.classList.add("dirt");
         }
@@ -65,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function(){
                     if(pockets[j]){
                         pockets[i].classList.remove("pocket-select");
                         pockets[j].classList.add("pocket-select");
+                        if(pockets[j].firstChild){
+                            pocketSelection = pockets[j].firstChild.className;
+                        }else{
+                            pocketSelection="none";
+                        }
                     }
                     break;
                 }
@@ -76,8 +82,24 @@ document.addEventListener("DOMContentLoaded", function(){
                     if(pockets[j]){
                         pockets[i].classList.remove("pocket-select");
                         pockets[j].classList.add("pocket-select");
+                        if(pockets[j].firstChild){
+                            pocketSelection = pockets[j].firstChild.className;
+                        }else{
+                            pocketSelection="none";
+                        }
                     }
                     break;
+                }
+            }
+        }
+
+        if(e.key==="n"){
+            if(background.className.includes("dirt")){
+                if(pocketSelection === "apple-to-plant"){
+                    console.log(background);
+                    let seed = document.createElement("div");
+                    seed.classList.add("seed");
+                    background.appendChild(seed);
                 }
             }
         }
